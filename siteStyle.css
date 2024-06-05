@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+  background-color: #FFF7F1;
 }
 
 .title {
@@ -26,16 +27,47 @@ body {
   gap: 10px;
 }
 
+.selected_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Espacio entre elementos */
+}
+
+.found_image {
+  max-width: 100px;
+  height: auto;
+  margin-right: 10px; /* Espacio entre imagen y contenido */
+}
+
+.found_container {
+  flex: 1; /* Ocupa todo el espacio disponible */
+  padding: 10px;
+}
+
+.input_container {
+  display: flex;
+  padding: 0px;
+}
+
 .suggestions-list {
   list-style: none;
-  padding: 0;
+  padding: 0px;
+  padding-right: 15px;
+  padding-top: 0px;
 }
 
 .suggestions-list li {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
-  margin-bottom: 10px; /* Espacio entre elementos */
+  border: 2px solid #61677A;
+  border-radius: 3px;
+  margin-bottom: 10px;
+
+  background-color: rgba(97, 103, 122, 0.2);
+}
+
+.suggestions-list li:hover {
+  background-color: rgba(244, 238, 238, 0.2);
 }
 
 .suggestions-list img {
@@ -46,7 +78,19 @@ body {
 
 .suggestions-list .content {
   flex: 1; /* Ocupa todo el espacio disponible */
-  padding: 10px;
+  padding: 5px;
+}
+
+.searchbox {
+  float: right;
+  width: 100%;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  margin-left: 10px;
+  font-size: 17px;
+
+  border: 1px solid #ccc;
 }
 
 .mini-box {
@@ -64,3 +108,31 @@ body {
 .verde { background-color: #40A578; }
 .lila { background-color: #874CCC; }
 .azul { background-color: #10439F; }
+
+.news-ticker {
+  width: 100%; /* Ancho de la barra de noticias */
+  overflow: hidden; /* Oculta el contenido que desborda */
+  background-color: #f0f0f0; /* Color de fondo */
+}
+
+.news-ticker ul {
+  list-style: none; /* Quita los marcadores de lista */
+  padding: 0; /* Quita el padding */
+  margin: 0; /* Quita el margen */
+  display: flex; /* Usa flexbox para el diseño horizontal */
+  animation: ticker 20s linear infinite; /* Animación del ticker */
+}
+
+.news-ticker li {
+  padding: 0 20px; /* Espacio alrededor de cada noticia */
+  white-space: nowrap; /* Evita el salto de línea */
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(100%); /* Comienza fuera de la pantalla a la derecha */
+  }
+  100% {
+    transform: translateX(-100%); /* Se desplaza completamente fuera de la pantalla a la izquierda */
+  }
+}

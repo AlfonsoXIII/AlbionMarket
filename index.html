@@ -13,19 +13,35 @@
 <h1 class="title">Albion Online Market</h1>
 <h4 class="subtitle">por AlfonsoXIII</h4>
 
+<div class="news-ticker">
+    <ul>
+      <li>Noticia 1</li>
+      <li>Noticia 2</li>
+      <li>Noticia 3</li>
+    </ul>
+  </div>
+
 <div class="container">
     <div class="column">
-        <div id = "found_image"></div>
-        <p id="nombre-item"></p>
-        <p id="descripcion"></p>
+        <div class="selected_container">
+            <div id = "found_image"></div>
+        <div class="found_container">
+            <h3 id="nombre-item"></h3>
+            <p id="descripcion"></p>
+        </div>
+        </div>
 
         <ul id="prices_list"></ul>
         <div id="prices_charts"></div>
     </div>
 
     <div class="column">
-        <input id="searchbar" class="searchbox" type = "text" placeholder="Buscar en el mercado...">
-        <ul id="search-list" class="suggestions-list"></ul>
+        <div class="search_area">
+            <div class="input_container">
+                <input id="searchbar" class="searchbox" type = "text" placeholder="Buscar en el mercado...">
+            </div>
+            <ul id="search-list" class="suggestions-list"></ul>
+        </div>
     </div>
 </div>
 

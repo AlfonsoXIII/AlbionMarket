@@ -50,7 +50,7 @@ function show_SEARCH(NOMBRE, DESCRIPCION, ID) {
     var nombre_item = document.getElementById("nombre-item");
     var descripcion = document.getElementById("descripcion");
 
-    element.textContent = "";
+    //element.textContent = "";
     nombre_item.textContent = NOMBRE;
 
     if (DESCRIPCION != null)
@@ -76,7 +76,7 @@ function fetch_SEARCH() {
                         let suggestionItem = document.createElement('li');
                         let suggestionImage = document.createElement('div');
                         let suggestionContent = document.createElement('div');
-                        let suggestionName = document.createElement('h3');
+                        let suggestionName = document.createElement('h4');
                         let suggestionDescription = document.createElement('p');
 
                         // Set the class for suggestionContent
