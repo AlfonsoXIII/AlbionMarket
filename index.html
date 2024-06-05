@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="apiFetch.js"></script>
+<script type="text/javascript" src="layoutManager.js"></script>
+<link rel="stylesheet" href="siteStyle.css">
+</head>
+
+<body>
+<h1 class="title">Albion Online Market</h1>
+<h4 class="subtitle">por AlfonsoXIII</h4>
+
+<div class="container">
+    <div class="column">
+        <div id = "found_image"></div>
+        <p id="nombre-item"></p>
+        <p id="descripcion"></p>
+
+        <ul id="prices_list"></ul>
+        <div id="prices_charts"></div>
+    </div>
+
+    <div class="column">
+        <input id="searchbar" class="searchbox" type = "text" placeholder="Buscar en el mercado...">
+        <ul id="search-list" class="suggestions-list"></ul>
+    </div>
+</div>
+
+<script>
+$('#searchbar').keyup(delay(function (e) {
+    fetch_SEARCH();
+}, 300));
+</script>
+</body>
+
+</html> 
