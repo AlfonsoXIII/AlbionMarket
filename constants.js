@@ -1,6 +1,12 @@
 const API_URL = 'https://europe.albion-online-data.com/api/v2/stats/';
 const CHART_API_URL = 'https://quickchart.io/chart?c=';
 
+// Constantes de páginas
+var PAGE = 0;
+
+const PAGE_MAIN = 0;
+const PAGE_KILLS = 1;
+
 // Constantes para la llamada a la API
 const PRICE = 1;
 const HISTORY = 2;

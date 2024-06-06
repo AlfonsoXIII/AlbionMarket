@@ -15,8 +15,9 @@
 <h4 class="subtitle">an Albion Online tool developed by AlfonsoXIII</h4>
 
 <div class="topnav">
-    <a class="active" href="#home">Inicio</a>
-    <a href="#contact" href="https://www.albion-online-data.com/">The Albion Online Data Project</a>
+    <a class="active" href="index.html">Inicio</a>
+    <a href="kills_record.html">Muertes</a>
+    <a href="https://www.albion-online-data.com/">The Albion Online Data Project</a>
 </div> 
 
 <div class="container">
@@ -31,7 +32,13 @@
 
         <ul id="prices_list"></ul>
         <button id="toggleButton">
-            <span id="indicator">&#9654;</span> Gráficos
+            <span id="indicator">&#9654;</span> Información General
+        </button>
+        <button id="toggleButton">
+            <span id="indicator">&#9654;</span> Crafteo
+        </button>
+        <button id="toggleButton">
+            <span id="indicator">&#9654;</span> Evolución precios
         </button>
         <div id="prices_charts"></div>
     </div>
@@ -45,24 +52,33 @@
                 <div class="dropdown">
                     <button onclick="classFilter_Button()" class="dropbtn" id = "classFilter_BUTTON">Cualquiera</button>
                     <div id = "classOptions" class="dropdown-content">
-                      <a id = "classOptions_RECURSO">Recurso</a>
-                      <a id = "classOptions_MONTURA">Montura</a>
-                      <a id = "classOptions_HERRAMIENTA">Herramienta</a>
-                      <a id = "classOptions_CUALQUIERA">Cualquiera</a>
+                        <a id = "classOptions_RECURSO">Recurso</a>
+                        <a id = "classOptions_MONTURA">Montura</a>
+                        <a id = "classOptions_HERRAMIENTA">Herramienta</a>
+                        <a id = "classOptions_CUALQUIERA">Cualquiera</a>
                     </div>
                 </div> 
                 <div class="dropdown">
                     <button onclick="tierFilter_Button()" class="dropbtn" id = "tierFilter_BUTTON">Todos los tier</button>
                     <div id="tierOptions" class="dropdown-content">
-                      <a id = "tierOptions_TIER1">Tier I</a>
-                      <a id = "tierOptions_TIER2">Tier II</a>
-                      <a id = "tierOptions_TIER3">Tier III</a>
-                      <a id = "tierOptions_TIER4">Tier IV</a>
-                      <a id = "tierOptions_TIER5">Tier V</a>
-                      <a id = "tierOptions_TIER6">Tier VI</a>
-                      <a id = "tierOptions_TIER7">Tier VII</a>
-                      <a id = "tierOptions_TIER9">Tier VIII</a>
-                      <a id = "tierOptions_TIERANY">Todos los tier</a>
+                        <a id = "tierOptions_TIER1">Tier I</a>
+                        <a id = "tierOptions_TIER2">Tier II</a>
+                        <a id = "tierOptions_TIER3">Tier III</a>
+                        <a id = "tierOptions_TIER4">Tier IV</a>
+                        <a id = "tierOptions_TIER5">Tier V</a>
+                        <a id = "tierOptions_TIER6">Tier VI</a>
+                        <a id = "tierOptions_TIER7">Tier VII</a>
+                        <a id = "tierOptions_TIER9">Tier VIII</a>
+                        <a id = "tierOptions_TIERANY">Todos los tier</a>
+                    </div>
+                </div> 
+                <div class="dropdown">
+                    <button onclick="classFilter_Button()" class="dropbtn" id = "classFilter_BUTTON">Todas las calidades</button>
+                    <div id = "classOptions" class="dropdown-content">
+                        <a id = "classOptions_RECURSO">Recurso</a>
+                        <a id = "classOptions_MONTURA">Montura</a>
+                        <a id = "classOptions_HERRAMIENTA">Herramienta</a>
+                        <a id = "classOptions_CUALQUIERA">Cualquiera</a>
                     </div>
                 </div> 
             </div>
@@ -149,6 +165,7 @@ document.getElementById('toggleButton').addEventListener('click', function() {
 
 fetch_SEARCH();
 </script>
+
 </body>
 
 </html> 

@@ -144,22 +144,21 @@ margin-left: 10px; /* Espacio entre los botones */
   display: flex;
   padding: 0px;
 }
-
 .suggestions-list {
   list-style: none;
   padding: 0px;
   padding-right: 15px;
   padding-top: 0px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px; /* Espacio entre las celdas */
 }
 
 .suggestions-list li {
-  display: flex;
-  align-items: center;
   border: 2px solid #61677A;
   border-radius: 3px;
-  margin-bottom: 10px;
-
   background-color: rgba(97, 103, 122, 0.2);
+  overflow: hidden; /* Asegura que las imágenes no se salgan de las celdas */
 }
 
 .suggestions-list li:hover {
@@ -167,14 +166,8 @@ margin-left: 10px; /* Espacio entre los botones */
 }
 
 .suggestions-list img {
-  max-width: 100px;
+  width: 100%; /* La imagen ocupa toda la celda */
   height: auto;
-  margin-right: 10px; /* Espacio entre imagen y contenido */
-}
-
-.suggestions-list .content {
-  flex: 1; /* Ocupa todo el espacio disponible */
-  padding: 5px;
 }
 
 .searchbox {
@@ -205,40 +198,13 @@ margin-left: 10px; /* Espacio entre los botones */
 .lila { background-color: #874CCC; }
 .azul { background-color: #10439F; }
 
-.news-ticker {
-  width: 100%; /* Ancho de la barra de noticias */
-  overflow: hidden; /* Oculta el contenido que desborda */
-  background-color: #f0f0f0; /* Color de fondo */
-}
-
-.news-ticker ul {
-  list-style: none; /* Quita los marcadores de lista */
-  padding: 0; /* Quita el padding */
-  margin: 0; /* Quita el margen */
-  display: flex; /* Usa flexbox para el diseño horizontal */
-  animation: ticker 20s linear infinite; /* Animación del ticker */
-}
-
-.news-ticker li {
-  padding: 0 20px; /* Espacio alrededor de cada noticia */
-  white-space: nowrap; /* Evita el salto de línea */
-}
-
-@keyframes ticker {
-  0% {
-    transform: translateX(100%); /* Comienza fuera de la pantalla a la derecha */
-  }
-  100% {
-    transform: translateX(-100%); /* Se desplaza completamente fuera de la pantalla a la izquierda */
-  }
-}
-
 #prices_charts {
   max-height: 1; /* Inicialmente oculto */
   overflow: hidden;
   transition: max-height 0.5s ease; /* Suaviza la transición */
   margin-top: 10px;
   opacity: 1;
+  align-items: center;
 }
 
 #toggleButton {
@@ -250,6 +216,7 @@ margin-left: 10px; /* Espacio entre los botones */
   font-size: 16px;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 #toggleButton #indicator {

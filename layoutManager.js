@@ -75,66 +75,67 @@ function fetch_SEARCH() {
                         // Create the necessary elements
                         let suggestionItem = document.createElement('li');
                         let suggestionImage = document.createElement('div');
-                        let suggestionContent = document.createElement('div');
-                        let suggestionName = document.createElement('h4');
-                        let suggestionDescription = document.createElement('p');
+                        //let suggestionContent = document.createElement('div');
+                        //let suggestionName = document.createElement('h4');
+                        //let suggestionDescription = document.createElement('p');
 
                         // Set the class for suggestionContent
-                        suggestionContent.classList.add('content');
+                        //suggestionContent.classList.add('content');
 
                         // Add the image to suggestionImage
                         suggestionImage.innerHTML = '<img src="https://render.albiononline.com/v1/item/' + item["UniqueName"] + '" width="100">';
-
+                        /*
                         // Set the name and description
                         suggestionName.textContent = item["LocalizedNames"]["ES-ES"];
                         suggestionDescription.textContent = item["LocalizedDescriptions"]["ES-ES"];
+                        */
 
                         // Set the click event for the suggestion item
                         suggestionItem.onclick = () => show_SEARCH(item["LocalizedNames"]["ES-ES"], item["LocalizedDescriptions"]["ES-ES"], item["UniqueName"]);
 
                         // Append children elements to suggestionItem
                         suggestionItem.appendChild(suggestionImage);
-                        suggestionContent.appendChild(suggestionName);
-                        suggestionContent.appendChild(suggestionDescription);
-                        suggestionItem.appendChild(suggestionContent);
+                        //suggestionContent.appendChild(suggestionName);
+                        //suggestionContent.appendChild(suggestionDescription);
+                        //suggestionItem.appendChild(suggestionContent);
 
                         // Append suggestionItem to the suggestionsContainer
                         suggestionsContainer.appendChild(suggestionItem);
                     } 
                 });
             } else {
-                json.forEach(item => {
-                    if (item["LocalizedNames"] != null) {
+                for (var i = 0; i < 102; i++) {
+                    if (json[i]["LocalizedNames"] != null) {
                         // Create the necessary elements
                         let suggestionItem = document.createElement('li');
                         let suggestionImage = document.createElement('div');
-                        let suggestionContent = document.createElement('div');
-                        let suggestionName = document.createElement('h4');
-                        let suggestionDescription = document.createElement('p');
+                        //let suggestionContent = document.createElement('div');
+                        //let suggestionName = document.createElement('h4');
+                        //let suggestionDescription = document.createElement('p');
 
                         // Set the class for suggestionContent
-                        suggestionContent.classList.add('content');
+                        //suggestionContent.classList.add('content');
 
                         // Add the image to suggestionImage
-                        suggestionImage.innerHTML = '<img src="https://render.albiononline.com/v1/item/' + item["UniqueName"] + '" width="100">';
-
+                        suggestionImage.innerHTML = '<img src="https://render.albiononline.com/v1/item/' + json[i]["UniqueName"] + '" width="100">';
+                        /*
                         // Set the name and description
                         suggestionName.textContent = item["LocalizedNames"]["ES-ES"];
                         suggestionDescription.textContent = item["LocalizedDescriptions"]["ES-ES"];
-
+                        */
                         // Set the click event for the suggestion item
-                        suggestionItem.onclick = () => show_SEARCH(item["LocalizedNames"]["ES-ES"], item["LocalizedDescriptions"]["ES-ES"], item["UniqueName"]);
-
+                        suggestionItem.onclick = () => show_SEARCH(json[i]["LocalizedNames"]["ES-ES"], json[i]["LocalizedDescriptions"]["ES-ES"], json[i]["UniqueName"]);
+                        
                         // Append children elements to suggestionItem
                         suggestionItem.appendChild(suggestionImage);
-                        suggestionContent.appendChild(suggestionName);
-                        suggestionContent.appendChild(suggestionDescription);
-                        suggestionItem.appendChild(suggestionContent);
+                        //suggestionContent.appendChild(suggestionName);
+                        //suggestionContent.appendChild(suggestionDescription);
+                        //suggestionItem.appendChild(suggestionContent);
 
                         // Append suggestionItem to the suggestionsContainer
                         suggestionsContainer.appendChild(suggestionItem);
                     } 
-                });
+                }
             }
         });
 }
@@ -147,10 +148,12 @@ function delay(fn, ms) {
   }
 }
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
 function classFilter_Button() {
     document.getElementById("classOptions").classList.toggle("show");
+}
+
+function tierFilter_Button() {
+    document.getElementById("tierOptions").classList.toggle("show");
 }
 
 function classFilter_UPDATE(ARG) {
@@ -173,10 +176,6 @@ function classFilter_UPDATE(ARG) {
             CLASS_FILTER_SELECTION = CLASS_CUALQUIERA;
             break;
     }
-}
-
-function tierFilter_Button() {
-    document.getElementById("tierOptions").classList.toggle("show");
 }
 
 function tierFilter_UPDATE(ARG) {
