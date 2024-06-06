@@ -102,7 +102,39 @@ function fetch_SEARCH() {
                         suggestionsContainer.appendChild(suggestionItem);
                     } 
                 });
+            } else {
+                json.forEach(item => {
+                    if (item["LocalizedNames"] != null) {
+                        // Create the necessary elements
+                        let suggestionItem = document.createElement('li');
+                        let suggestionImage = document.createElement('div');
+                        let suggestionContent = document.createElement('div');
+                        let suggestionName = document.createElement('h4');
+                        let suggestionDescription = document.createElement('p');
 
+                        // Set the class for suggestionContent
+                        suggestionContent.classList.add('content');
+
+                        // Add the image to suggestionImage
+                        suggestionImage.innerHTML = '<img src="https://render.albiononline.com/v1/item/' + item["UniqueName"] + '" width="100">';
+
+                        // Set the name and description
+                        suggestionName.textContent = item["LocalizedNames"]["ES-ES"];
+                        suggestionDescription.textContent = item["LocalizedDescriptions"]["ES-ES"];
+
+                        // Set the click event for the suggestion item
+                        suggestionItem.onclick = () => show_SEARCH(item["LocalizedNames"]["ES-ES"], item["LocalizedDescriptions"]["ES-ES"], item["UniqueName"]);
+
+                        // Append children elements to suggestionItem
+                        suggestionItem.appendChild(suggestionImage);
+                        suggestionContent.appendChild(suggestionName);
+                        suggestionContent.appendChild(suggestionDescription);
+                        suggestionItem.appendChild(suggestionContent);
+
+                        // Append suggestionItem to the suggestionsContainer
+                        suggestionsContainer.appendChild(suggestionItem);
+                    } 
+                });
             }
         });
 }
@@ -117,20 +149,81 @@ function delay(fn, ms) {
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
+function classFilter_Button() {
+    document.getElementById("classOptions").classList.toggle("show");
+}
+
+function classFilter_UPDATE(ARG) {
+    var buttonClassFilter = document.getElementById("classFilter_BUTTON");
+    switch (ARG) {
+        case CLASS_RECURSO:
+            buttonClassFilter.textContent = "Recurso";
+            CLASS_FILTER_SELECTION = CLASS_RECURSO;
+            break;
+        case CLASS_MONTURA:
+            buttonClassFilter.textContent = "Montura";
+            CLASS_FILTER_SELECTION = CLASS_MONTURA;
+            break;
+        case CLASS_HERRAMIENTA:
+            buttonClassFilter.textContent = "Herramienta";
+            CLASS_FILTER_SELECTION = CLASS_HERRAMIENTA;
+            break;
+        default:
+            buttonClassFilter.textContent = "Cualquiera";
+            CLASS_FILTER_SELECTION = CLASS_CUALQUIERA;
+            break;
     }
-  } 
+}
+
+function tierFilter_Button() {
+    document.getElementById("tierOptions").classList.toggle("show");
+}
+
+function tierFilter_UPDATE(ARG) {
+    var buttonTierFilter = document.getElementById("tierFilter_BUTTON");
+    switch (ARG) {
+        case TIER_1:
+            buttonTierFilter.textContent = "Tier I";
+            break;
+        case TIER_2:
+            buttonTierFilter.textContent = "Tier II";
+            break;
+        case TIER_3:
+            buttonTierFilter.textContent = "Tier III";
+            break;
+        case TIER_4:
+            buttonTierFilter.textContent = "Tier IV";
+            break;
+        case TIER_5:
+            buttonTierFilter.textContent = "Tier V";
+            break;
+        case TIER_6:
+            buttonTierFilter.textContent = "Tier VI";
+            break;
+        case TIER_7:
+            buttonTierFilter.textContent = "Tier VII";
+            break;
+        case TIER_8:
+            buttonTierFilter.textContent = "Tier VIII";
+            break;
+        default:
+            buttonTierFilter.textContent = "Todos los tier";
+            break;
+    }
+
+    TIER_FILTER_SELECTION = ARG;
+}
+  
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+    }
+    }
+}
+}

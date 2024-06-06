@@ -4,24 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="constants.js"></script>
 <script type="text/javascript" src="apiFetch.js"></script>
 <script type="text/javascript" src="layoutManager.js"></script>
 <link rel="stylesheet" href="siteStyle.css">
 </head>
 
 <body>
-<h1 class="title">Albion Online Market</h1>
-<h4 class="subtitle">por AlfonsoXIII</h4>
+<h1 class="title">Alfonso's Tavern</h1>
+<h4 class="subtitle">an Albion Online tool developed by AlfonsoXIII</h4>
 
 <div class="topnav">
     <a class="active" href="#home">Inicio</a>
     <a href="#contact" href="https://www.albion-online-data.com/">The Albion Online Data Project</a>
-    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-    </div>
 </div> 
 
 <div class="container">
@@ -35,6 +30,9 @@
         </div>
 
         <ul id="prices_list"></ul>
+        <button id="toggleButton">
+            <span id="indicator">&#9654;</span> Gráficos
+        </button>
         <div id="prices_charts"></div>
     </div>
 
@@ -42,6 +40,31 @@
         <div class="search_area">
             <div class="input_container">
                 <input id="searchbar" class="searchbox" type = "text" placeholder="Buscar en el mercado...">
+            </div>
+            <div class="filter_area">
+                <div class="dropdown">
+                    <button onclick="classFilter_Button()" class="dropbtn" id = "classFilter_BUTTON">Cualquiera</button>
+                    <div id = "classOptions" class="dropdown-content">
+                      <a id = "classOptions_RECURSO">Recurso</a>
+                      <a id = "classOptions_MONTURA">Montura</a>
+                      <a id = "classOptions_HERRAMIENTA">Herramienta</a>
+                      <a id = "classOptions_CUALQUIERA">Cualquiera</a>
+                    </div>
+                </div> 
+                <div class="dropdown">
+                    <button onclick="tierFilter_Button()" class="dropbtn" id = "tierFilter_BUTTON">Todos los tier</button>
+                    <div id="tierOptions" class="dropdown-content">
+                      <a id = "tierOptions_TIER1">Tier I</a>
+                      <a id = "tierOptions_TIER2">Tier II</a>
+                      <a id = "tierOptions_TIER3">Tier III</a>
+                      <a id = "tierOptions_TIER4">Tier IV</a>
+                      <a id = "tierOptions_TIER5">Tier V</a>
+                      <a id = "tierOptions_TIER6">Tier VI</a>
+                      <a id = "tierOptions_TIER7">Tier VII</a>
+                      <a id = "tierOptions_TIER9">Tier VIII</a>
+                      <a id = "tierOptions_TIERANY">Todos los tier</a>
+                    </div>
+                </div> 
             </div>
             <ul id="search-list" class="suggestions-list"></ul>
         </div>
@@ -52,6 +75,79 @@
 $('#searchbar').keyup(delay(function (e) {
     fetch_SEARCH();
 }, 300));
+
+$('#classOptions_RECURSO').click(function (e) {
+    classFilter_UPDATE(CLASS_RECURSO);
+});
+
+$('#classOptions_MONTURA').click(function (e) {
+    classFilter_UPDATE(CLASS_MONTURA);
+});
+
+$('#classOptions_HERRAMIENTA').click(function (e) {
+    classFilter_UPDATE(CLASS_HERRAMIENTA);
+});
+
+$('#classOptions_CUALQUIERA').click(function (e) {
+    classFilter_UPDATE(CLASS_CUALQUIERA);
+});
+
+$('#tierOptions_TIER1').click(function (e) {
+    tierFilter_UPDATE(TIER_1);
+});
+
+$('#tierOptions_TIER2').click(function (e) {
+    tierFilter_UPDATE(TIER_2);
+});
+
+$('#tierOptions_TIER3').click(function (e) {
+    tierFilter_UPDATE(TIER_3);
+});
+
+$('#tierOptions_TIER4').click(function (e) {
+    tierFilter_UPDATE(TIER_4);
+});
+
+$('#tierOptions_TIER5').click(function (e) {
+    tierFilter_UPDATE(TIER_5);
+});
+
+$('#tierOptions_TIER6').click(function (e) {
+    tierFilter_UPDATE(TIER_6);
+});
+
+$('#tierOptions_TIER7').click(function (e) {
+    tierFilter_UPDATE(TIER_7);
+});
+
+$('#tierOptions_TIER8').click(function (e) {
+    tierFilter_UPDATE(TIER_8);
+});
+
+$('#tierOptions_TIERANY').click(function (e) {
+    tierFilter_UPDATE(TIER_ANY);
+});
+
+document.getElementById('toggleButton').addEventListener('click', function() {
+    var content = document.getElementById('prices_charts');
+    var indicator = document.getElementById('indicator');
+    
+    // Alterna la visibilidad del contenido
+    if (content.classList.contains('removeCharts')) {
+        content.classList.remove('removeCharts');
+    } else {
+        content.classList.add('removeCharts');
+    }
+    
+    // Alterna la rotación del indicador
+    if (indicator.classList.contains('rotate')) {
+        indicator.classList.remove('rotate');
+    } else {
+        indicator.classList.add('rotate');
+    }
+});
+
+fetch_SEARCH();
 </script>
 </body>
 

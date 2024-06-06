@@ -1,9 +1,3 @@
-const API_URL = 'https://europe.albion-online-data.com/api/v2/stats/';
-const CHART_API_URL = 'https://quickchart.io/chart?c=';
-
-const PRICE = 1;
-const HISTORY = 2;
-
 var CIUDADES = {
     0: ["Bridgewatch", 10, "naranja"],
     1: ["Fort Sterling", 20, "negro"],
